@@ -10,8 +10,16 @@ public class Midterm{
         System.out.println("Exams has started...");
         System.out.println(examObj.getMessage());
 
+        while(true){
         System.out.println("Exam score ceiling: ");
         int examScoreCeiling = sc.nextInt();
+        if(examScoreCeiling == 0){//automatic perfect, meant for someone who is exempted at the exam or whatever scenario that fits this condition
+            examObj.setScore(100);
+            examObj.setCeiling(100);
+            examObj.setExamPercentage();
+            examObj.addExamPercentageWeight();
+            break;  
+        }else{
         while(true){         
             System.out.print("Exam score: ");
             int examScore = sc.nextInt();
@@ -25,9 +33,19 @@ public class Midterm{
                 break;
             }
         }
+        }
+        }
 
+        while(true){
         System.out.println("Quiz score ceiling: ");
         int quizScoreCeiling = sc.nextInt();
+        if(quizScoreCeiling == 0){//automatic perfect, meant for someone who is exempted at the quiz or whatever scenario that fits this condition
+            quizObj.setScore(100);
+            quizObj.setCeiling(100);
+            quizObj.setQuizPercentage();
+            quizObj.addQuizPercentageWeight();
+            break;  
+        }else{
         while(true){          
             System.out.print("Quiz score: ");
             int quizScore = sc.nextInt();
@@ -41,9 +59,19 @@ public class Midterm{
                 break;
             }
             }
-    
-        System.out.println("Essay score ceiling: ");
-        int essayScoreCeiling = sc.nextInt();    
+        }
+        }
+        
+        while(true){
+        System.out.println("Exam score ceiling: ");
+        int essayScoreCeiling = sc.nextInt();
+        if(essayScoreCeiling == 0){//automatic perfect, meant for someone who is exempted at the essay or whatever scenario that fits this condition
+            essayObj.setScore(100);
+            essayObj.setCeiling(100);
+            essayObj.setEssayPercentage();
+            essayObj.addEssayPercentageWeight();
+            break;  
+        }else{   
         while(true){ 
             System.out.print("Essay score: ");
             int essayScore = sc.nextInt();
@@ -57,6 +85,8 @@ public class Midterm{
                 break;
             }
             }
+        }
+        }
 
         System.out.println("Exam's contribution to your grade is: " + examObj.getPercentage());
         System.out.println("Quiz's contribution to your grade is: " + quizObj.getQuizPercentage());
